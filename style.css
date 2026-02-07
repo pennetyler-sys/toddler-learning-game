@@ -1,34 +1,50 @@
-.game {
-  background-color: #F0E68C; /* Light yellow for a playful feel */
-  font-family: 'Comic Sans MS', cursive; /* Fun font for toddlers */
-  text-align: center;
-  padding: 20px;
-}
-
-.button {
-  background-color: #4CAF50; /* Green color for buttons */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  border-radius: 12px;
-}
-
-.button:hover {
-  background-color: #45a049; /* Darker green on hover */
-}
-
-.header {
-  font-size: 2em;
-  margin-bottom: 20px;
-}
-
-.footer {
-  font-size: 0.9em;
-  margin-top: 30px;
-  color: #555;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Comic Sans MS', 'Arial Rounded MT Bold', cursive, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 20px; }
+.screen { display: none; width: 100%; max-width: 900px; background: white; border-radius: 30px; padding: 40px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3); animation: slideIn 0.5s ease; }
+.screen.active { display: block; }
+@keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.title { text-align: center; font-size: 3em; color: #667eea; margin-bottom: 40px; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); }
+.game-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; margin: 0 auto; }
+.menu-button { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 30px 20px; font-size: 1.5em; border-radius: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; font-weight: bold; }
+.menu-button:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4); }
+.menu-button:active { transform: scale(0.98); }
+.back-btn { background: #FF6B6B; color: white; border: none; padding: 12px 20px; font-size: 1.2em; border-radius: 10px; cursor: pointer; margin-bottom: 20px; transition: transform 0.2s; }
+.back-btn:hover { transform: scale(1.05); }
+.game-title { text-align: center; font-size: 2.5em; color: #667eea; margin-bottom: 30px; }
+.game-container { min-height: 400px; display: flex; flex-direction: column; align-items: center; }
+.score { text-align: center; font-size: 1.5em; color: #764ba2; margin-top: 20px; font-weight: bold; }
+.color-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 20px; width: 100%; margin-bottom: 30px; }
+.color-box { width: 100%; aspect-ratio: 1; border-radius: 20px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.color-box:hover { transform: scale(1.05); }
+.color-box.correct { animation: pop 0.5s ease; }
+.color-box.wrong { animation: shake 0.3s ease; }
+@keyframes pop { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+.number-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 15px; width: 100%; }
+.number-box { padding: 20px; font-size: 2.5em; font-weight: bold; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px; cursor: pointer; text-align: center; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.number-box:hover { transform: scale(1.1); }
+.number-box.correct { animation: pop 0.5s ease; }
+.number-box.wrong { animation: shake 0.3s ease; }
+.letter-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 15px; width: 100%; }
+.letter-box { padding: 20px; font-size: 2.5em; font-weight: bold; background: linear-gradient(135deg, #FFE66D 0%, #FF9F43 100%); color: white; border-radius: 15px; cursor: pointer; text-align: center; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.letter-box:hover { transform: scale(1.1); }
+.letter-box.correct { animation: pop 0.5s ease; }
+.letter-box.wrong { animation: shake 0.3s ease; }
+.animal-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 20px; width: 100%; }
+.animal-box { padding: 20px; background: linear-gradient(135deg, #95E1D3 0%, #38ADA9 100%); border-radius: 20px; cursor: pointer; text-align: center; transition: transform 0.2s; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); position: relative; }
+.animal-box:hover { transform: scale(1.1); }
+.animal-emoji { font-size: 4em; margin-bottom: 10px; }
+.animal-name { font-size: 1.2em; font-weight: bold; color: white; }
+.sound-display { font-size: 1.5em; font-weight: bold; color: white; padding: 10px; background: rgba(0, 0, 0, 0.2); border-radius: 10px; margin-top: 10px; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+.count-display { font-size: 4em; font-weight: bold; color: #667eea; margin: 30px 0; text-align: center; }
+.count-button { padding: 30px 50px; font-size: 1.8em; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 20px; cursor: pointer; transition: transform 0.2s; font-weight: bold; }
+.count-button:hover { transform: scale(1.1); }
+.count-button:disabled { opacity: 0.7; cursor: not-allowed; }
+.memory-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 15px; width: 100%; max-width: 500px; margin: 0 auto; }
+.memory-card { aspect-ratio: 1; background: linear-gradient(135deg, #FF6B9D 0%, #C44569 100%); color: white; border: none; border-radius: 15px; font-size: 2.5em; cursor: pointer; transition: transform 0.2s; font-weight: bold; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); }
+.memory-card:hover { transform: scale(1.05); }
+.memory-card.flipped { background: linear-gradient(135deg, #FFE66D 0%, #FF9F43 100%); }
+.memory-card.matched { background: linear-gradient(135deg, #38ADA9 0%, #1B7A6B 100%); cursor: default; transform: scale(1); }
+@media (max-width: 768px) { .screen { padding: 20px; } .title { font-size: 2em; } .game-menu { grid-template-columns: repeat(2, 1fr); } .menu-button { padding: 20px 15px; font-size: 1.2em; } .game-title { font-size: 1.8em; } .count-display { font-size: 3em; } }
+@media (max-width: 480px) { .game-menu { grid-template-columns: 1fr; } .color-grid { grid-template-columns: repeat(2, 1fr); } .memory-grid { grid-template-columns: repeat(3, 1fr); } }
