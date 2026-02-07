@@ -3,13 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toddler Learning Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Toddler Learning Games</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the Toddler Learning Game</h1>
-    <div id="game-container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/3.55.2/phaser.min.js"></script>
+    <div id="menu-screen" class="screen active">
+        <h1 class="title">🎮 Learning Games</h1>
+        <div class="game-menu">
+            <button class="menu-button" onclick="startGame('colors')">🌈 Color Match</button>
+            <button class="menu-button" onclick="startGame('numbers')">🔢 Learn Numbers</button>
+            <button class="menu-button" onclick="startGame('letters')">🔤 Learn Letters</button>
+            <button class="menu-button" onclick="startGame('animals')">🐻 Animal Sounds</button>
+            <button class="menu-button" onclick="startGame('counting')">📊 Counting Game</button>
+            <button class="menu-button" onclick="startGame('memory')">🧠 Memory Match</button>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <button class="back-btn" onclick="backToMenu()">← Back</button>
+        <h2 id="game-title" class="game-title"></h2>
+        <div id="game-container" class="game-container"></div>
+        <div id="score" class="score">Score: 0</div>
+    </div>
+
     <script src="game.js"></script>
 </body>
 </html>
